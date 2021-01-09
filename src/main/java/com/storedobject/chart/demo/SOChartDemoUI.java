@@ -20,12 +20,12 @@ public class SOChartDemoUI extends UI {
 
 		VerticalLayout layout = new VerticalLayout();
 
-//		layout.addComponent(new MyFirstChart());
-//		layout.addComponent(new SimpleLineChart());
-//		layout.addComponent(new TimeLineChart());
-//		layout.addComponent(new MultipleLinesChart());
-//		layout.addComponent(new CircularTreeChart());
+		layout.addComponent(new MyFirstChart());
 		layout.addComponent(new SimpleDonutChart());
+		layout.addComponent(new SimpleLineChart());
+		layout.addComponent(new TimeLineChart());
+		layout.addComponent(new MultipleLinesChart());
+		layout.addComponent(new CircularTreeChart());
 
 		setContent(layout);
 	}

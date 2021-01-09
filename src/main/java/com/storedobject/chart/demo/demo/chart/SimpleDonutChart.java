@@ -80,7 +80,7 @@ public class SimpleDonutChart extends SOChart {
 				+ "        }" //
 				+ "     }";
 
-		pieLabel.addCustomProperty(pieCustomLabel);
+		pieLabel.setProperty(pieCustomLabel);
 
 		DonutChart donut = new DonutChart();
 		donut.setItemNames(donutLabels);
@@ -123,8 +123,8 @@ public class SimpleDonutChart extends SOChart {
 				+ "			'borderRadius': 4" //
 				+ "        }" //
 				+ "     }";
-		donutLabel.addCustomProperty(donutCustomLabel);
-		// this setFontSize is override by custom label property above, 'fontSize': 11,"
+		donutLabel.setProperty(donutCustomLabel);
+		// this setFontSize is override by custom label property above, 'fontSize': 10,"
 		donutLabel.setFontSize(14);
 
 		Toolbox toolbox = new Toolbox();
