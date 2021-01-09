@@ -15,9 +15,6 @@ import com.storedobject.chart.property.ItemStyleProperty;
 import com.storedobject.chart.property.LabelProperty;
 import com.storedobject.chart.property.PolarProperty;
 
-import elemental.json.Json;
-import elemental.json.JsonObject;
-
 public class SimpleDonutChart extends SOChart {
 	private static final long serialVersionUID = -3925288601291977314L;
 
@@ -64,6 +61,26 @@ public class SimpleDonutChart extends SOChart {
 		piePolar.setInnerRadius(Size.percentage(0));
 		LabelProperty pieLabel = pie.getLabelProperty();
 		pieLabel.setFontSize(10);
+		String pieCustomLabel = "'formatter': '{b}\\n{per|{d}%}'," //
+				+ "     'rich': {" //
+				+ "         'b': {" //
+				+ "             'color': '#4C5058'," //
+				+ "             'fontSize': 14," //
+				+ "             'fontWeight': 'bold'," //
+				+ "             'height': 22" //
+				+ "         }," //
+				+ "         'per': {" //
+				+ "             'color': '#fff'," //
+				+ "             'backgroundColor': '#4C5058'," //
+				+ "             'padding': [" //
+				+ "                 3," //
+				+ "                 4" //
+				+ "           ]," //
+				+ "			'borderRadius': 4" //
+				+ "        }" //
+				+ "     }";
+
+		pieLabel.addCustomProperty(pieCustomLabel);
 
 		DonutChart donut = new DonutChart();
 		donut.setItemNames(donutLabels);
@@ -72,14 +89,43 @@ public class SimpleDonutChart extends SOChart {
 		donut.setItemStyleProperty(itemStyle);
 		donut.setHoleRadius(Size.percentage(50));
 		LabelProperty donutLabel = donut.getLabelProperty();
-		String label = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  ',"
-				+ "'backgroundColor': '#F6F8FC'," + "'borderColor': '#8C8D8E'," + "'borderWidth': 1,"
-				+ "'borderRadius': 4," + "'rich': {" + "'a': {" + "'color': '#6E7079'," + "'lineHeight': 22,"
-				+ "'align': 'center'" + "}," + "'hr': {" + "'borderColor': '#8C8D8E'," + "'width': '100%',"
-				+ "'borderWidth': 1," + "'height': 0" + "}," + "'b': {" + "'color': '#4C5058'," + "'fontSize': 14,"
-				+ "'fontWeight': 'bold'," + "'lineHeight': 33" + "}," + "'per': {" + "'color': '#fff',"
-				+ "'backgroundColor': '#4C5058'," + "'padding': [3, 4]," + "'borderRadius': 4" + "}" + "}" ;
-		donutLabel.addProperty(label);
+//		String donutCustomLabel = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  '," //
+		String donutCustomLabel = "'formatter': '{b| {c}：} {per|{d}%}'," //
+				+ "     'backgroundColor': '#F6F8FC'," //
+				+ "     'borderColor': '#8C8D8E'," //
+				+ "     'borderWidth': 1," //
+				+ "     'borderRadius': 4," //
+				+ "     'fontSize': 10," //
+				+ "     'rich': {" //
+				+ "         'a': {" //
+				+ "             'color': '#6E7079'," //
+				+ "             'lineHeight': 22," //
+				+ "             'align': 'center'" //
+				+ "         }," //
+				+ "         'hr': {" //
+				+ "  			'borderColor': '#8C8D8E'," //
+				+ "             'width': '100%'," //
+				+ "  			'borderWidth': 1," //
+				+ "             'height': 0" //
+				+ "         }," //
+				+ "         'b': {" //
+				+ "             'color': '#4C5058'," //
+				+ "             'fontSize': 12," //
+				+ "         }," //
+				+ "         'per': {" //
+				+ "             'color': '#fff'," //
+				+ "             'backgroundColor': '#4C5058'," //
+				+ "             'height': 22," //
+				+ "             'padding': [" //
+				+ "                 3," //
+				+ "                 4" //
+				+ "           ]," //
+				+ "			'borderRadius': 4" //
+				+ "        }" //
+				+ "     }";
+		donutLabel.addCustomProperty(donutCustomLabel);
+		// this setFontSize is override by custom label property above, 'fontSize': 11,"
+		donutLabel.setFontSize(14);
 
 		Toolbox toolbox = new Toolbox();
 		toolbox.addButton(new Toolbox.Download(), new Toolbox.Zoom());

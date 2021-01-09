@@ -20,7 +20,6 @@ public class SOChartDemoUI extends UI {
 
 		VerticalLayout layout = new VerticalLayout();
 
-		// Creating a chart display area.
 //		layout.addComponent(new MyFirstChart());
 //		layout.addComponent(new SimpleLineChart());
 //		layout.addComponent(new TimeLineChart());
@@ -28,7 +27,6 @@ public class SOChartDemoUI extends UI {
 //		layout.addComponent(new CircularTreeChart());
 		layout.addComponent(new SimpleDonutChart());
 
-		// Now, add the chart display (which is a Vaadin Component) to your layout.
 		setContent(layout);
 	}
 
