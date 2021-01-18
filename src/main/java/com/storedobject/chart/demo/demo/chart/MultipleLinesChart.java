@@ -1,13 +1,13 @@
 package com.storedobject.chart.demo.demo.chart;
 
-import com.storedobject.chart.Data;
-import com.storedobject.chart.DataType;
-import com.storedobject.chart.LineChart;
-import com.storedobject.chart.RectangularCoordinate;
 import com.storedobject.chart.SOChart;
-import com.storedobject.chart.Title;
-import com.storedobject.chart.XAxis;
-import com.storedobject.chart.YAxis;
+import com.storedobject.chart.component.LineChart;
+import com.storedobject.chart.component.Title;
+import com.storedobject.chart.coordinate_system.RectangularCoordinate;
+import com.storedobject.chart.coordinate_system.XAxis;
+import com.storedobject.chart.coordinate_system.YAxis;
+import com.storedobject.chart.data.Data;
+import com.storedobject.chart.data.DataType;
 
 public class MultipleLinesChart extends SOChart {
 	private static final long serialVersionUID = 2366348257592821140L;

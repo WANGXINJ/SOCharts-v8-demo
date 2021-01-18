@@ -1,19 +1,19 @@
 package com.storedobject.chart.demo.demo.chart;
 
-import com.storedobject.chart.CategoryData;
-import com.storedobject.chart.Color;
-import com.storedobject.chart.Data;
-import com.storedobject.chart.DonutChart;
-import com.storedobject.chart.InnerLabelPieChart;
-import com.storedobject.chart.LineStyle;
-import com.storedobject.chart.Position;
 import com.storedobject.chart.SOChart;
-import com.storedobject.chart.Size;
-import com.storedobject.chart.Title;
-import com.storedobject.chart.Toolbox;
+import com.storedobject.chart.component.DonutChart;
+import com.storedobject.chart.component.InnerLabelPieChart;
+import com.storedobject.chart.component.Title;
+import com.storedobject.chart.component.Toolbox;
+import com.storedobject.chart.coordinate_system.Position;
+import com.storedobject.chart.data.CategoryData;
+import com.storedobject.chart.data.Data;
+import com.storedobject.chart.property.Color;
 import com.storedobject.chart.property.ItemStyleProperty;
 import com.storedobject.chart.property.LabelProperty;
+import com.storedobject.chart.property.LineStyle;
 import com.storedobject.chart.property.PolarProperty;
+import com.storedobject.chart.property.Size;
 
 public class SimpleDonutChart extends SOChart {
 	private static final long serialVersionUID = -3925288601291977314L;
@@ -55,7 +55,7 @@ public class SimpleDonutChart extends SOChart {
 		pie.setItemNames(pieLabels);
 		pie.setData(pieData);
 		pie.setPosition(position);
-		pie.setItemStyleProperty(itemStyle);
+		pie.setItemStyle(itemStyle);
 		PolarProperty piePolar = pie.getPolarProperty(true);
 		piePolar.setRadius(Size.percentage(50));
 		piePolar.setInnerRadius(Size.percentage(0));
@@ -86,7 +86,7 @@ public class SimpleDonutChart extends SOChart {
 		donut.setItemNames(donutLabels);
 		donut.setData(donutData);
 		donut.setPosition(position); // Position it leaving 50% space at the top
-		donut.setItemStyleProperty(itemStyle);
+		donut.setItemStyle(itemStyle);
 		donut.setHoleRadius(Size.percentage(50));
 		LabelProperty donutLabel = donut.getLabelProperty();
 //		String donutCustomLabel = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  '," //

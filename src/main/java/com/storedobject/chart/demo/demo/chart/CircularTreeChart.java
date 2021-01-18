@@ -3,9 +3,9 @@ package com.storedobject.chart.demo.demo.chart;
 import java.util.Random;
 
 import com.storedobject.chart.SOChart;
-import com.storedobject.chart.Title;
-import com.storedobject.chart.TreeChart;
-import com.storedobject.chart.TreeData;
+import com.storedobject.chart.component.Title;
+import com.storedobject.chart.component.TreeChart;
+import com.storedobject.chart.data.TreeData;
 
 public class CircularTreeChart extends SOChart {
 	private static final long serialVersionUID = 7644138903351514408L;

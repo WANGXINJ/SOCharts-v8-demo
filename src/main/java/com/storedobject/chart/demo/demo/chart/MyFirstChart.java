@@ -1,18 +1,18 @@
 package com.storedobject.chart.demo.demo.chart;
 
-import com.storedobject.chart.BarChart;
-import com.storedobject.chart.CategoryData;
-import com.storedobject.chart.Data;
-import com.storedobject.chart.DataType;
-import com.storedobject.chart.NightingaleRoseChart;
-import com.storedobject.chart.Position;
-import com.storedobject.chart.RectangularCoordinate;
 import com.storedobject.chart.SOChart;
-import com.storedobject.chart.Size;
-import com.storedobject.chart.Title;
-import com.storedobject.chart.Toolbox;
-import com.storedobject.chart.XAxis;
-import com.storedobject.chart.YAxis;
+import com.storedobject.chart.component.BarChart;
+import com.storedobject.chart.component.NightingaleRoseChart;
+import com.storedobject.chart.component.Title;
+import com.storedobject.chart.component.Toolbox;
+import com.storedobject.chart.coordinate_system.Position;
+import com.storedobject.chart.coordinate_system.RectangularCoordinate;
+import com.storedobject.chart.coordinate_system.XAxis;
+import com.storedobject.chart.coordinate_system.YAxis;
+import com.storedobject.chart.data.CategoryData;
+import com.storedobject.chart.data.Data;
+import com.storedobject.chart.data.DataType;
+import com.storedobject.chart.property.Size;
 
 public class MyFirstChart extends SOChart {
 	private static final long serialVersionUID = -3925288601291977314L;
