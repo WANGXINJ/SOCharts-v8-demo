@@ -6,6 +6,7 @@ import java.util.Random;
 import com.storedobject.chart.SOChart;
 import com.storedobject.chart.component.LineChart;
 import com.storedobject.chart.component.Title;
+import com.storedobject.chart.component.Tooltip;
 import com.storedobject.chart.coordinate_system.RectangularCoordinate;
 import com.storedobject.chart.coordinate_system.XAxis;
 import com.storedobject.chart.coordinate_system.YAxis;
@@ -49,6 +50,16 @@ public class TimeLineChart extends SOChart {
 
 		// Add to the chart display area with a simple title
 		add(lineChart, new Title("Sample Time Line Chart"));
-	}
 
+		Tooltip tooltip = getTooltip();
+		tooltip.setProperty("trigger", "axis");
+		tooltip.setProperty("formatter", "function (params) {" //
+				+ "            params = params[0];" //
+				+ "            console.log(params);" //
+				+ "            var date = new Date(params.value[0]);" //
+				+ "            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];"
+				+ "        }");
+
+		lineChart.getPointSymbol(true).show();
+	}
 }
