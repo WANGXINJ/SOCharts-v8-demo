@@ -9,8 +9,8 @@ import com.storedobject.chart.coordinate_system.Position;
 import com.storedobject.chart.data.CategoryData;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.property.Color;
-import com.storedobject.chart.property.ItemStyleProperty;
-import com.storedobject.chart.property.LabelProperty;
+import com.storedobject.chart.property.ItemStyle;
+import com.storedobject.chart.property.Label;
 import com.storedobject.chart.property.LineStyle;
 import com.storedobject.chart.property.PolarProperty;
 import com.storedobject.chart.property.Size;
@@ -46,7 +46,7 @@ public class SimpleDonutChart extends SOChart {
 		position.setWidth(Size.pixels(600));
 		position.setHeight(Size.pixels(400));
 
-		ItemStyleProperty itemStyle = new ItemStyleProperty();
+		ItemStyle itemStyle = new ItemStyle();
 		itemStyle.setBorderColor(new Color("#ffffff"));
 		itemStyle.setBorderWidth(1);
 		itemStyle.setBorderType(LineStyle.Type.SOLID);
@@ -59,7 +59,7 @@ public class SimpleDonutChart extends SOChart {
 		PolarProperty piePolar = pie.getPolarProperty(true);
 		piePolar.setRadius(Size.percentage(50));
 		piePolar.setInnerRadius(Size.percentage(0));
-		LabelProperty pieLabel = pie.getLabelProperty();
+		Label pieLabel = pie.getLabel();
 		pieLabel.setFontSize(10);
 		String pieCustomLabel = "'formatter': '{b}\\n{per|{d}%}'," //
 				+ "     'rich': {" //
@@ -88,7 +88,7 @@ public class SimpleDonutChart extends SOChart {
 		donut.setPosition(position); // Position it leaving 50% space at the top
 		donut.setItemStyle(itemStyle);
 		donut.setHoleRadius(Size.percentage(50));
-		LabelProperty donutLabel = donut.getLabelProperty();
+		Label donutLabel = donut.getLabel();
 //		String donutCustomLabel = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  '," //
 		String donutCustomLabel = "'formatter': '{b| {c}：} {per|{d}%}'," //
 				+ "     'backgroundColor': '#F6F8FC'," //
@@ -136,6 +136,6 @@ public class SimpleDonutChart extends SOChart {
 		// Add the chart components to the chart display area.
 		add(donut, pie, toolbox, title);
 
-		disableDefaultLegend();
+		setLegend(null);
 	}
 }

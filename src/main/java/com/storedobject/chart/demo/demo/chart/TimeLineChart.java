@@ -13,6 +13,8 @@ import com.storedobject.chart.coordinate_system.YAxis;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
 import com.storedobject.chart.data.TimeData;
+import com.storedobject.chart.property.BaseComponentProperty;
+import com.storedobject.chart.property.PropertyValueArray;
 
 public class TimeLineChart extends SOChart {
 	private static final long serialVersionUID = 8336420706566487408L;
@@ -40,6 +42,22 @@ public class TimeLineChart extends SOChart {
 		// Line chart is initialized with the generated XY values
 		LineChart lineChart = new LineChart(xValues, yValues);
 		lineChart.setName("40 Random Values");
+
+		PropertyValueArray markData = new PropertyValueArray();
+		markData.addPropertyValue() //
+				.setProperty("type", "max") //
+				.setProperty("name", "Max Value");
+		markData.addPropertyValue() //
+				.setProperty("type", "min") //
+				.setProperty("name", "Min Value");
+		lineChart.setComponentProperty(new BaseComponentProperty("markPoint") //
+				.setProperty("data", markData));
+
+		markData.clear().addPropertyValue() //
+				.setProperty("type", "average") //
+				.setProperty("name", "Average Value");
+		lineChart.setComponentProperty(new BaseComponentProperty("markLine") //
+				.setProperty("data", markData));
 
 		// Line chart needs a coordinate system to plot on
 		// We need Number-type for both X and Y axes in this case

@@ -60,6 +60,6 @@ public class MultipleLinesChart extends SOChart {
 		add(new Title("Equation: y = a + a * x / (a - 11) where a = 1 to 10, x and y are positive"));
 
 		// We don't want any legends
-		disableDefaultLegend();
+		setLegend(null);
 	}
 }
