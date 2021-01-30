@@ -1,6 +1,7 @@
 package com.storedobject.chart.demo.demo.chart;
 
 import com.storedobject.chart.SOChart;
+import com.storedobject.chart.ChartClick.EventDetails;
 import com.storedobject.chart.component.BarChart;
 import com.storedobject.chart.component.NightingaleRoseChart;
 import com.storedobject.chart.component.Title;
@@ -13,6 +14,7 @@ import com.storedobject.chart.data.CategoryData;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
 import com.storedobject.chart.property.Size;
+import com.vaadin.ui.Notification;
 
 public class MyFirstChart extends SOChart {
 	private static final long serialVersionUID = -3925288601291977314L;
@@ -55,5 +57,10 @@ public class MyFirstChart extends SOChart {
 
 		// Add the chart components to the chart display area.
 		add(nc, bc, toolbox, title);
+		
+		addClickListener(click -> {
+			EventDetails details = click.getDetails();
+			Notification.show("seriesType=" + details.getSeriesType() + ", seriesIndex=" + details.getSeriesIndex() + ", dataIndex=" + details.getDataIndex());
+		});
 	}
 }

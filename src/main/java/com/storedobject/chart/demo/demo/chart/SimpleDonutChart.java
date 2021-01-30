@@ -10,7 +10,7 @@ import com.storedobject.chart.data.CategoryData;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.property.Color;
 import com.storedobject.chart.property.ItemStyle;
-import com.storedobject.chart.property.Label;
+import com.storedobject.chart.property.LabelProperty;
 import com.storedobject.chart.property.LineStyle;
 import com.storedobject.chart.property.PolarProperty;
 import com.storedobject.chart.property.Size;
@@ -59,7 +59,7 @@ public class SimpleDonutChart extends SOChart {
 		PolarProperty piePolar = pie.getPolarProperty(true);
 		piePolar.setRadius(Size.percentage(50));
 		piePolar.setInnerRadius(Size.percentage(0));
-		Label pieLabel = pie.getLabel();
+		LabelProperty pieLabel = pie.getLabel(true);
 		pieLabel.setFontSize(10);
 		String pieCustomLabel = "'formatter': '{b}\\n{per|{d}%}'," //
 				+ "     'rich': {" //
@@ -88,7 +88,7 @@ public class SimpleDonutChart extends SOChart {
 		donut.setPosition(position); // Position it leaving 50% space at the top
 		donut.setItemStyle(itemStyle);
 		donut.setHoleRadius(Size.percentage(50));
-		Label donutLabel = donut.getLabel();
+		LabelProperty donutLabel = donut.getLabel(true);
 //		String donutCustomLabel = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  '," //
 		String donutCustomLabel = "'formatter': '{b| {c}：} {per|{d}%}'," //
 				+ "     'backgroundColor': '#F6F8FC'," //
