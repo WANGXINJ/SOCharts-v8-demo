@@ -43,7 +43,7 @@ public class SimpleLineChart extends SOChart {
 		RectangularCoordinate rc = new RectangularCoordinate(xAxis, yAxis);
 		lineChart.plotOn(rc);
 
-		yAxis.getLabel(true).setFormatter(Format.percentFormat("c", 2));
+		yAxis.getLabel(true).setFormatter(Format.percentFormat("y", 2));
 		
 		// Add to the chart display area with a simple title
 		add(lineChart, new Title("Sample Line Chart"));
