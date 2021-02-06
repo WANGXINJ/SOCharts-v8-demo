@@ -10,6 +10,7 @@ import com.storedobject.chart.coordinate_system.XAxis;
 import com.storedobject.chart.coordinate_system.YAxis;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
+import com.storedobject.chart.property.Format;
 
 public class SimpleLineChart extends SOChart {
 	private static final long serialVersionUID = -1623760699428690323L;
@@ -22,10 +23,10 @@ public class SimpleLineChart extends SOChart {
 		// Generating some random values for a LineChart
 		Random random = new Random();
 		Data xValues = new Data(), yValues = new Data();
-		double yValue = 10.00;
+		double yValue = 0;
 		for (int x = 0; x < 40; x++) {
 			xValues.add(x);
-			yValue += random.nextDouble() * (random.nextBoolean() ? 1 : -1);
+			yValue += random.nextDouble() * (random.nextBoolean() ? 1 : -1) * 0.1;
 			yValues.add(yValue);
 		}
 		xValues.setName("X Values");
@@ -42,6 +43,8 @@ public class SimpleLineChart extends SOChart {
 		RectangularCoordinate rc = new RectangularCoordinate(xAxis, yAxis);
 		lineChart.plotOn(rc);
 
+		yAxis.getLabel(true).setFormatter(Format.percentFormat("c", 2));
+		
 		// Add to the chart display area with a simple title
 		add(lineChart, new Title("Sample Line Chart"));
 	}
