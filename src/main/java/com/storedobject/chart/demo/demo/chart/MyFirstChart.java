@@ -43,12 +43,14 @@ public class MyFirstChart extends SOChart {
 		// appropriately.
 		// Create a self-positioning chart.
 		NightingaleRoseChart nc = new NightingaleRoseChart(labels, data);
+		nc.setName("Plants");
 		Position p = new Position();
 		p.setTop(Size.percentage(50));
 		nc.setPosition(p); // Position it leaving 50% space at the top
 
 		// Second chart to add.
 		BarChart bc = new BarChart(labels, data);
+		bc.setName("Fruits");
 		RectangularCoordinate rc;
 		rc = new RectangularCoordinate(new XAxis(DataType.CATEGORY), new YAxis(DataType.NUMBER));
 		p = new Position();
@@ -65,13 +67,11 @@ public class MyFirstChart extends SOChart {
 		Title title = new Title("My First Chart");
 		title.setSubtext("2nd Line of the Title");
 
-		setLegend(null);
-		
 		Format valueFormat = Format.currencyFormat("y");
 		AxisLabel axisLabel = rc.getAxes().get(1).getLabel(true);
 		axisLabel.setFormatter(valueFormat);
 		Tooltip tooltip = getTooltip();
-		tooltip.setFormatter("%s: %s", Format.stringFormat("x"), valueFormat);
+//		tooltip.setFormatter("%s: %s", Format.stringFormat("x"), valueFormat);
 		bc.getLabel(true).setFormatter(valueFormat);
 		nc.getLabel(true).setFormatter("%s: %s", Format.stringFormat("x"), valueFormat);
 

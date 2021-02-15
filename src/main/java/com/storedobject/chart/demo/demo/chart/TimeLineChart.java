@@ -15,7 +15,6 @@ import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
 import com.storedobject.chart.data.TimeData;
 import com.storedobject.chart.property.BaseComponentProperty;
-import com.storedobject.chart.property.Format;
 import com.storedobject.chart.property.PropertyValueArray;
 import com.vaadin.ui.Notification;
 
@@ -75,13 +74,12 @@ public class TimeLineChart extends SOChart {
 
 		Tooltip tooltip = getTooltip();
 		tooltip.setProperty("trigger", "axis");
-//		tooltip.setProperty("formatter", "function (params) {" //
-//				+ "            params = params[0];" //
-//				+ "            console.log(params);" //
-//				+ "            var date = new Date(params.value[0]);" //
-//				+ "            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];"
-//				+ "        }"); 
-		tooltip.setFormatter("%s: %s", Format.dateFormat("x", "yyyy-MM-dd"), Format.doubleFormat("y"));
+		tooltip.setProperty("formatter", "function (params) {" //
+				+ "            params = params[0];" //
+				+ "            console.log(params);" //
+				+ "            var date = new Date(params.value[0]);" //
+				+ "            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];"
+				+ "        }");
 
 		lineChart.getPointSymbol(true).show();
 
