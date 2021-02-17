@@ -10,6 +10,7 @@ import com.storedobject.chart.coordinate_system.XAxis;
 import com.storedobject.chart.coordinate_system.YAxis;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
+import com.storedobject.chart.property.Color;
 import com.storedobject.chart.property.Format;
 
 public class SimpleLineChart extends SOChart {
@@ -35,6 +36,7 @@ public class SimpleLineChart extends SOChart {
 		// Line chart is initialized with the generated XY values
 		LineChart lineChart = new LineChart(xValues, yValues);
 		lineChart.setName("Random Values");
+		lineChart.setColors(new Color("#000"));
 
 		// Line chart needs a coordinate system to plot on
 		// We need Number-type for both X and Y axes in this case

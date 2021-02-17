@@ -22,7 +22,8 @@ public class SimpleDonutChart extends SOChart {
 		setSize("800px", "500px");
 		setMinWidth("300px");
 		setMinHeight("200px");
-
+		getTooltip();
+		
 		// Let us define some inline data.
 		CategoryData plantsLabels = new CategoryData("Banana", "Apple", "Orange", "Grapes");
 		Data plantsData = new Data(25, 40, 20, 30);
@@ -52,6 +53,7 @@ public class SimpleDonutChart extends SOChart {
 		itemStyle.setBorderType(LineStyle.Type.SOLID);
 
 		InnerLabelPieChart pie = new InnerLabelPieChart();
+		pie.setName("Class");
 		pie.setItemNames(pieLabels);
 		pie.setData(pieData);
 		pie.setPosition(position);
@@ -61,7 +63,7 @@ public class SimpleDonutChart extends SOChart {
 		piePolar.setInnerRadius(Size.percentage(0));
 		LabelProperty pieLabel = pie.getLabel(true);
 		pieLabel.setFontSize(10);
-		String pieCustomLabel = "'formatter': '{b}\\n{per|{d}%}'," //
+		String pieCustomLabel = "'formatter': '{x}{y%?n$<,.2>}\\n{per|{d%n<,.2>%}}'," //
 				+ "     'rich': {" //
 				+ "         'b': {" //
 				+ "             'color': '#4C5058'," //
@@ -83,6 +85,7 @@ public class SimpleDonutChart extends SOChart {
 		pieLabel.setProperty(pieCustomLabel);
 
 		DonutChart donut = new DonutChart();
+		donut.setName("Type");
 		donut.setItemNames(donutLabels);
 		donut.setData(donutData);
 		donut.setPosition(position); // Position it leaving 50% space at the top
@@ -90,7 +93,7 @@ public class SimpleDonutChart extends SOChart {
 		donut.setHoleRadius(Size.percentage(50));
 		LabelProperty donutLabel = donut.getLabel(true);
 //		String donutCustomLabel = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  '," //
-		String donutCustomLabel = "'formatter': '{b| {c}：} {per|{d}%}'," //
+		String donutCustomLabel = "'formatter': '{x}: {b|{y%n$<,.2>}} {per|{d%n<,.2>%}}'," //
 				+ "     'backgroundColor': '#F6F8FC'," //
 				+ "     'borderColor': '#8C8D8E'," //
 				+ "     'borderWidth': 1," //
