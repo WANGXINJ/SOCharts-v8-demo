@@ -15,6 +15,8 @@ import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
 import com.storedobject.chart.data.TimeData;
 import com.storedobject.chart.property.BaseComponentProperty;
+import com.storedobject.chart.property.Format;
+import com.storedobject.chart.property.MarkPoint;
 import com.storedobject.chart.property.PropertyValueArray;
 import com.vaadin.ui.Notification;
 
@@ -45,16 +47,14 @@ public class TimeLineChart extends SOChart {
 		LineChart lineChart = new LineChart(xValues, yValues);
 		lineChart.setName("40 Random Values");
 
-		PropertyValueArray markData = new PropertyValueArray();
-		markData.newPropertyValue() //
-				.setProperty("type", "max") //
-				.setProperty("name", "Max Value");
-		markData.newPropertyValue() //
-				.setProperty("type", "min") //
-				.setProperty("name", "Min Value");
-		lineChart.setProperty(new BaseComponentProperty("markPoint") //
-				.setProperty("data", markData));
+		lineChart.getMarkPoint(true) //
+				.addData("Max Value", MarkPoint.TypeData.Type.max) //
+				.addData("Min Value", MarkPoint.TypeData.Type.min) //
+				.getLabel(true) //
+				.setFormatter(Format.doubleFormat("value")) //
+		;
 
+		PropertyValueArray markData = new PropertyValueArray();
 		markData.clear().newPropertyValue() //
 				.setProperty("type", "average") //
 				.setProperty("name", "Average Value");
@@ -78,7 +78,7 @@ public class TimeLineChart extends SOChart {
 				+ "            params = params[0];" //
 				+ "            console.log(params);" //
 				+ "            var date = new Date(params.value[0]);" //
-				+ "            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];"
+				+ "            return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1].toFixed(2);"
 				+ "        }");
 
 		lineChart.getPointSymbol(true).show();

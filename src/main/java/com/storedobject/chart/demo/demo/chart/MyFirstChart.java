@@ -67,13 +67,13 @@ public class MyFirstChart extends SOChart {
 		Title title = new Title("My First Chart");
 		title.setSubtext("2nd Line of the Title");
 
-		Format valueFormat = Format.currencyFormat("y");
+		Format valueFormat = Format.currencyFormat("value");
 		AxisLabel axisLabel = rc.getAxes().get(1).getLabel(true);
 		axisLabel.setFormatter(valueFormat);
 		Tooltip tooltip = getTooltip();
 //		tooltip.setFormatter("%s: %s", Format.stringFormat("x"), valueFormat);
 		bc.getLabel(true).setFormatter(valueFormat);
-		nc.getLabel(true).setFormatter("%s: %s", Format.stringFormat("x"), valueFormat);
+		nc.getLabel(true).setFormatter("%s: %s", Format.stringFormat("b"), valueFormat);
 
 		ContinuousVisualMap visualMap = new ContinuousVisualMap();
 		ContinuousVisualMap.InRange inRange = new ContinuousVisualMap.InRange();
