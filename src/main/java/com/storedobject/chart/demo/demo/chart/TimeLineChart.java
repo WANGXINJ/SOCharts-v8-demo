@@ -14,10 +14,9 @@ import com.storedobject.chart.coordinate_system.YAxis;
 import com.storedobject.chart.data.Data;
 import com.storedobject.chart.data.DataType;
 import com.storedobject.chart.data.TimeData;
-import com.storedobject.chart.property.BaseComponentProperty;
 import com.storedobject.chart.property.Format;
+import com.storedobject.chart.property.MarkLine;
 import com.storedobject.chart.property.MarkPoint;
-import com.storedobject.chart.property.PropertyValueArray;
 import com.vaadin.ui.Notification;
 
 public class TimeLineChart extends SOChart {
@@ -54,12 +53,11 @@ public class TimeLineChart extends SOChart {
 				.setFormatter(Format.doubleFormat("value")) //
 		;
 
-		PropertyValueArray markData = new PropertyValueArray();
-		markData.clear().newPropertyValue() //
-				.setProperty("type", "average") //
-				.setProperty("name", "Average Value");
-		lineChart.setProperty(new BaseComponentProperty("markLine") //
-				.setProperty("data", markData));
+		lineChart.getMarkLine(true) //
+				.addData("Average Value", MarkLine.TypeData.Type.average) //
+//				.getLabel(true) //
+//				.setFormatter("abc") //
+		;
 
 		// Line chart needs a coordinate system to plot on
 		// We need Number-type for both X and Y axes in this case

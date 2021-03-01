@@ -63,7 +63,7 @@ public class SimpleDonutChart extends SOChart {
 		piePolar.setInnerRadius(Size.percentage(0));
 		LabelProperty pieLabel = pie.getLabel(true);
 		pieLabel.setFontSize(10);
-		String pieCustomLabel = "'formatter': '{b| {b}}\\n{per|{d%n<>%}}'," //
+		String pieCustomLabel = "'formatter': '{b| {b}{value%?n$<,.2>}}\\n{per|{d%n<>%}}'," //
 				+ "     'rich': {" //
 				+ "         'b': {" //
 				+ "             'fontSize': 12," //
@@ -92,7 +92,7 @@ public class SimpleDonutChart extends SOChart {
 		donut.setHoleRadius(Size.percentage(50));
 		LabelProperty donutLabel = donut.getLabel(true);
 //		String donutCustomLabel = "'formatter': '{a|{a}}{abg|}\\n{hr|}\\n  {b|{b}：}{c}  {per|{d}%}  '," //
-		String donutCustomLabel = "'formatter': '{b| {b}: {value%n<,.2>}} {per|{d%n<>%}}'," //
+		String donutCustomLabel = "'formatter': '{b| {b}: {value%n$<,.2>}} {per|{d%n<>%}}'," //
 				+ "     'backgroundColor': '#F6F8FC'," //
 				+ "     'borderColor': '#8C8D8E'," //
 				+ "     'borderWidth': 1," //

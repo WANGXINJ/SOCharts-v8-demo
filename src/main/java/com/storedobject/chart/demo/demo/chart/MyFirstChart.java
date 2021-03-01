@@ -71,7 +71,7 @@ public class MyFirstChart extends SOChart {
 		AxisLabel axisLabel = rc.getAxes().get(1).getLabel(true);
 		axisLabel.setFormatter(valueFormat);
 		Tooltip tooltip = getTooltip();
-//		tooltip.setFormatter("%s: %s", Format.stringFormat("x"), valueFormat);
+//		tooltip.setFormatter("%s: %s", Format.stringFormat("b"), valueFormat);
 		bc.getLabel(true).setFormatter(valueFormat);
 		nc.getLabel(true).setFormatter("%s: %s", Format.stringFormat("b"), valueFormat);
 

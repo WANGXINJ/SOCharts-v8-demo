@@ -16,6 +16,7 @@ public class MultipleLinesChart extends SOChart {
 		setSize("600px", "650px");
 		setMinWidth("300px");
 		setMinHeight("200px");
+		setDatasetByChart(true);
 
 		// Generating 10 set of values for 10 LineCharts for the equation:
 		// y = a + a * x / (a - 11) where a = 1 to 10, x and y are positive

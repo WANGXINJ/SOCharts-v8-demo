@@ -46,7 +46,7 @@ public class SimpleLineChart extends SOChart {
 		lineChart.plotOn(rc);
 
 		yAxis.getLabel(true).setFormatter(Format.percentFormat("c", 2));
-		
+
 		// Add to the chart display area with a simple title
 		add(lineChart, new Title("Sample Line Chart"));
 	}
